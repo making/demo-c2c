@@ -1,0 +1,10 @@
+---
+applications:
+- name: demo-a
+  path: target/demo-a-0.0.1-SNAPSHOT.jar
+  memory: 768M
+  routes:
+  - route: demo-a.cfapps.io
+  - route: demo-a.apps.internal
+  env:
+    CONFIG_TARGET: http://demo-b.apps.internal:8080

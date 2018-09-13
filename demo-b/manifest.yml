@@ -1,0 +1,17 @@
+---
+applications:
+- name: demo-b
+  path: target/demo-b-0.0.1-SNAPSHOT.jar
+  memory: 768M
+  routes:
+  - route: demo-b.cfapps.io
+  - route: demo-b.apps.internal
+  env:
+    CONFIG_TARGET: http://demo-c.apps.internal:8080
+  network_policies:
+  - source: demo-a
+    protocol: tcp
+    port: 8080
+  - destination: demo-c
+    protocol: tcp
+    port: 8080
